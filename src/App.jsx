@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Contrasenia from './Contrasenia'
+import Login from './Login'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,8 +15,9 @@ function App() {
   return (
     <>
       {/*<Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />*/}
-      <h1>Contraseña</h1>
+      <h1>{contrasenia}</h1>
       <Contrasenia contrasenia={contrasenia} cambioContrasenia={(e) => setContrasenia(e.target.value)} />
+      <Login />
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
