@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Contrasenia.css'
 
-function Contrasenia() {
+function Contrasenia(props) {
     const [type, setType] = useState("password");
     const [texto, setTexto] = useState("ver");
 
@@ -16,7 +16,7 @@ function Contrasenia() {
     }
     return (
         <div>
-            <input className='texto' type={type} placeholder="Contraseña" />
+            <input className='texto' type={type} defaultValue={props.ValorInicial} onChange={props.cambioContrasenia} />
             <button className='boton' type='button' onClick={ver_ocultar}>{texto}</button>
         </div>
     );
