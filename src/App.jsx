@@ -13,7 +13,9 @@ function App() {
 
   return (
     <>
-      <Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />
+      {/*<Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />*/}
+      <h1>Contraseña</h1>
+      <Contrasenia contrasenia={contrasenia} cambioContrasenia={(e) => setContrasenia(e.target.value)} />
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />

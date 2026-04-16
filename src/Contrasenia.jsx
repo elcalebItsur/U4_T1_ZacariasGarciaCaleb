@@ -5,7 +5,8 @@ function Contrasenia(props) {
     const [type, setType] = useState("password");
     const [texto, setTexto] = useState("ver");
 
-    const ver_ocultar = () => {
+    const ver_ocultar = (evento) => {
+        console.log(evento);
         if (type === "password") {
             setType("text");
             setTexto("ocultar");
@@ -16,7 +17,7 @@ function Contrasenia(props) {
     }
     return (
         <div>
-            <input className='texto' type={type} defaultValue={props.ValorInicial} onChange={props.cambioContrasenia} />
+            <input className='texto' type={type} defaultValue={props.contrasenia} onChange={props.cambioContrasenia} />
             <button className='boton' type='button' onClick={ver_ocultar}>{texto}</button>
         </div>
     );
