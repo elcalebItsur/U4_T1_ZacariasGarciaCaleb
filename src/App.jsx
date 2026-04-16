@@ -7,10 +7,13 @@ import Contrasenia from './Contrasenia'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [contrasenia, setContrasenia] = useState('123')
+  let variable = 5;
+  
 
   return (
     <>
-      <Contrasenia></Contrasenia>
+      <Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
