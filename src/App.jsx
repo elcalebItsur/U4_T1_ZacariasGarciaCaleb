@@ -5,15 +5,23 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Contrasenia from './Contrasenia'
 import Login from './Login'
+import Dia from './semana/Dia'
+import Semana from './semana/Semana'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [contrasenia, setContrasenia] = useState('123')
+  const [contrasenia, setContrasenia] = useState('');
   let variable = 5;
   
 
   return (
     <>
+    <Semana ></Semana>
+    <Dia marcado={false} texto="Lunes"></Dia>
+    <Dia marcado={true} texto="Martes"></Dia>
+    <Dia marcado={false} texto="Miércoles"></Dia>
+    <Dia marcado={false} texto="Jueves"></Dia>
+    <Dia marcado={true} texto="Viernes"></Dia>
       {/*<Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />*/}
       <h1>{contrasenia}</h1>
       <Contrasenia contrasenia={contrasenia} cambioContrasenia={(e) => setContrasenia(e.target.value)} />
