@@ -16,17 +16,17 @@ function App() {
 
   return (
     <>
-    <Semana ></Semana>
-    <Dia marcado={false} texto="Lunes"></Dia>
-    <Dia marcado={true} texto="Martes"></Dia>
-    <Dia marcado={false} texto="Miércoles"></Dia>
-    <Dia marcado={false} texto="Jueves"></Dia>
-    <Dia marcado={true} texto="Viernes"></Dia>
-      {/*<Contrasenia contrasenia={contrasenia} prop1="valor" prop2="otro valor" />*/}
+      <Login />
+      <Semana ></Semana>
+      <Dia marcado={false} texto="Lunes"></Dia>
+      <Dia marcado={true} texto="Martes"></Dia>
+      <Dia marcado={false} texto="Miércoles"></Dia>
+      <Dia marcado={false} texto="Jueves"></Dia>
+      <Dia marcado={true} texto="Viernes"></Dia>
       <h1>{contrasenia}</h1>
       <Contrasenia contrasenia={contrasenia} cambioContrasenia={(e) => setContrasenia(e.target.value)} />
-      <Login />
       <section id="center">
+
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
