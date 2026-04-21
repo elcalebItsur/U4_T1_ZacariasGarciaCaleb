@@ -2,76 +2,84 @@ import { useState } from 'react'
 import './Login.css'
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [usuario, setUsuario] = useState('');
+    const [contrasenia, setContrasenia] = useState('');
+    const [estaAutenticado, setEstaAutenticado] = useState(false);
     const [error, setError] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [mostrarContrasenia, setMostrarContrasenia] = useState(false);
 
-    const handleLogin = (e) => {
+    const manejarLogin = (e) => {
         e.preventDefault();
-        if (username === 'Caleb' && password === '1234') {
-            setIsLoggedIn(true);
+        if (usuario === 'user1' && contrasenia === '1234') {
+            setEstaAutenticado(true);
             setError('');
-        } else {
+        }
+        else if (usuario === 'user2' && contrasenia === '5678') {
+            setEstaAutenticado(true);
+            setError('');
+        }
+        else {
             setError('Usuario y/o contraseña incorrectos');
         }
     };
 
-    const handleLogout = () => {
-        setIsLoggedIn(false);
-        setUsername('');
-        setPassword('');
+    const manejarLogout = () => {
+        setEstaAutenticado(false);
+        setUsuario('');
+        setContrasenia('');
         setError('');
     };
 
-    const togglePassword = () => {
-        setShowPassword(!showPassword);
+    const alternarContrasenia = () => {
+        setMostrarContrasenia(!mostrarContrasenia);
     };
 
-    if (isLoggedIn) {
+    if (estaAutenticado) {
         return (
-            <div className="login-container">
-                <div className="login-box welcome-box">
-                    <h1>Bienvenido usuario {username}</h1>
-                    <button className='boton cerrar-sesion' onClick={handleLogout}>Cerrar sesión</button>
+            <div className="contenedor-login">
+                <div className="cuadro-login cuadro-bienvenida">
+                    <h1>Bienvenido usuario {usuario}</h1>
+                    <button className='boton cerrar-sesion' onClick={manejarLogout}>Cerrar sesión</button>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="login-container">
-            <form className="login-box" onSubmit={handleLogin}>
+        <div className="contenedor-login">
+            <form className="cuadro-login" onSubmit={manejarLogin}>
                 <h1>Iniciar Sesión</h1>
-                <div className="input-group">
+                <div className="grupo-input">
                     <input
                         className='texto'
                         type="text"
                         placeholder="Usuario"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={usuario}
+                        onChange={(e) => setUsuario(e.target.value)}
                         required
                     />
                 </div>
-                <div className="input-group password-group">
+                <div className="grupo-input">
                     <input
                         className='texto'
-                        type={showPassword ? "text" : "password"}
+                        type={mostrarContrasenia ? "text" : "password"}
                         placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={contrasenia}
+                        onChange={(e) => setContrasenia(e.target.value)}
                         required
                     />
-                    <button type="button" className="ver-btn" onClick={togglePassword}>
-                        {showPassword ? "Ocultar" : "Ver"}
+                    <button type="button" className="boton-ver" onClick={alternarContrasenia}>
+                        {mostrarContrasenia ? "Ocultar" : "Ver"}
                     </button>
                 </div>
-                <button type="submit" className='boton aceptar-btn'>Aceptar</button>
-                {error && <p className="error-message">{error}</p>}
+                <div className="contenedor-boton-aceptar">
+                    <button type="submit" className='boton boton-aceptar'>Aceptar</button>
+                </div>
+                {error && <p className="mensaje-error">{error}</p>}
             </form>
         </div>
     );
 }
 
 export default Login
+
