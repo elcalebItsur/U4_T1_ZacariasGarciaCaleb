@@ -1,0 +1,10 @@
+[
+    {
+        "nombre": "Caleb Zacarias", 
+        "disponibilidad":[false, false, false, false, false, false, false]
+    },
+    {
+        "nombre": "Juan Pérez", 
+        "disponibilidad":[false, false, false, false, false, false, false]
+    }
+]
