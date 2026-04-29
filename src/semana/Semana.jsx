@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Dia from './Dia'
 
-function Semana({laboral=true,diasSeleccionados,extendida=false}) {
+function Semana({laboral=false,diasSeleccionados = [false,false,false,false,false,false,false],extendida=false, cambioDeDia}) {
     let dias=['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'];
-        const [checked,setChecked]=useState(diasSeleccionados?diasSeleccionados:[false,false,false,false,false,false,false]);
+        const [checked,setChecked]=useState(diasSeleccionados);
+
+        React.useEffect(() => {
+            setChecked(diasSeleccionados);
+        }, [diasSeleccionados]);
 
         const clickDia=(indice)=>{
             
@@ -14,8 +18,10 @@ function Semana({laboral=true,diasSeleccionados,extendida=false}) {
             let nuevosChecked=[...checked];
             nuevosChecked[indice]=!nuevosChecked[indice];
 
-            //console.log(checked[indice]);
             setChecked(nuevosChecked);
+            if (cambioDeDia) {
+                cambioDeDia(nuevosChecked);
+            }
         }
 
         return (
